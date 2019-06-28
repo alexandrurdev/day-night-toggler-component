@@ -1,9 +1,9 @@
-@import './fontawesome.scss';
-@import './solid.scss';
-@import './brands.scss';
-@import './regular.scss';
+@import 'fontawesome/fontawesome.scss';
+@import 'fontawesome/solid.scss';
+@import 'fontawesome/brands.scss';
+@import 'fontawesome/regular.scss';
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap');
-@import '_personalMixins.scss';
+@import '_mixins.scss';
 @import '_colors.scss';
 
 * {
@@ -25,18 +25,34 @@
       }
 
       footer {
-        span {
-          color: $secondaryLogoC;
+        a {
+          transition: .3s all ease;
+
+          &:hover {
+            color: $secondaryLogoC;
+          }
+
+          span {
+            color: $secondaryLogoC;
+          }
         }
       }
     }
     
     footer {
-      color: $primaryLogoC;
       @include centerBottomAbs;
+      a {
+        transition: .5s all ease;
+        color: $primaryLogoC;
+        
+        &:hover {
+          color: $invertSecondaryLogoC;
 
-      span {
-        color: $invertSecondaryLogoC;
+        }
+
+        span {
+          color: $invertSecondaryLogoC;            
+        }
       }
     }
   }
@@ -66,3 +82,7 @@
   font-size: 2.5rem;
 }
 
+a {
+  font-family: 'Noto Sans TC', sans-serif;
+  @include resetLink;
+}
