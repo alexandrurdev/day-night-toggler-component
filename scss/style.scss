@@ -3,6 +3,8 @@
 @import './brands.scss';
 @import './regular.scss';
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap');
+@import '_personalMixins.scss';
+@import '_colors.scss';
 
 * {
   margin: 0;
@@ -12,66 +14,36 @@
   body {
     margin: 1em auto;
     text-align: center;
-  }
-}
+    transition: .5s all ease;
 
-@mixin ios-toggle($height: 26px, $width: 46px) {
+    &.darkMode {
+    background: $darkModeC;
 
-  label {
-    appearance: none;
-    transition: all .3s ease;
-    box-shadow: inset 0px 0px 0px 1px #e6e6e6;
-    border-radius: 1rem;
-    background-color: #fff;
-    padding: 1px;
-    display: inline-block;
-    width: $width;
-    height: $height;
-    position: relative;
-    cursor: pointer;
-    margin: 0px;
-    vertical-align: bottom;
-    outline: none;
-    border: none;
-  }
+      .title-app,
+      .fas {
+        color: $secondaryLogoC;
+      }
 
-  input {
-    position: absolute;
-    left: -999999px;
-  }
+      footer {
+        span {
+          color: $secondaryLogoC;
+        }
+      }
+    }
+    
+    footer {
+      color: $primaryLogoC;
+      @include centerBottomAbs;
 
-  input + label {
-    box-shadow: inset 0px 0px 0px 20px #ccc;
-  }
-
-  input:checked + label {
-    box-shadow: inset 0px 0px 0px 20px #53d76a;
-  }
-
-  label:after {
-    transition: all .3s ease-in-out;
-    box-shadow: inset 0 1px 0 #e6e6e6, 0px 2px 2px 1px rgba(0,0,0,.2) ;
-    border-radius: 1rem;
-    left: 0;
-    content: '';
-    position: absolute;
-    width: $height - 2px; 
-    height: $height - 2px;
-    cursor: pointer;
-    background-color: #fff;
-  }
-
-  input:checked + label:after {
-    transition: all .3s ease-in-out;
-    left: $width - $height;
+      span {
+        color: $invertSecondaryLogoC;
+      }
+    }
   }
 }
 
 .ios {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: trasnlateY(-50%);
+  @include centerizePage;
   @include ios-toggle;
 }
 
@@ -81,12 +53,12 @@
 }
 
 .fa-sun {
-  left: -3rem;
+  left: $iconPosition;
   display: none;
 }
 
 .fa-moon {
-  right: -3rem;
+  right: $iconPosition;
 }
 
 .title-app {
@@ -94,15 +66,3 @@
   font-size: 2.5rem;
 }
 
-body {
-  transition: .5s all ease;
-
-  &.darkMode {
-  background: #1f1f1f;
-
-    .title-app,
-    .fas {
-      color: #fff;
-    }
-  }
-}

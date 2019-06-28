@@ -4390,7 +4390,23 @@ readers do not read off random characters that represent icons */
   box-sizing: border-box; }
   * body {
     margin: 1em auto;
-    text-align: center; }
+    text-align: center;
+    transition: .5s all ease; }
+    * body.darkMode {
+      background: #1f1f1f; }
+      * body.darkMode .title-app,
+      * body.darkMode .fas {
+        color: #fff; }
+      * body.darkMode footer span {
+        color: #fff; }
+    * body footer {
+      color: #d40c12;
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%); }
+      * body footer span {
+        color: #1f1f1f; }
 
 .ios {
   position: absolute;
@@ -4449,13 +4465,5 @@ readers do not read off random characters that represent icons */
 .title-app {
   font-family: 'Noto Sans TC', sans-serif;
   font-size: 2.5rem; }
-
-body {
-  transition: .5s all ease; }
-  body.darkMode {
-    background: #1f1f1f; }
-    body.darkMode .title-app,
-    body.darkMode .fas {
-      color: #fff; }
 
 /*# sourceMappingURL=style.css.map */
