@@ -2,7 +2,6 @@
 @import 'fontawesome/solid.scss';
 @import 'fontawesome/brands.scss';
 @import 'fontawesome/regular.scss';
-@import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap');
 @import '_mixins.scss';
 @import '_colors.scss';
 
@@ -77,12 +76,15 @@
   right: $iconPosition;
 }
 
-.title-app {
-  font-family: 'Noto Sans TC', sans-serif;
-  font-size: 2.5rem;
+header {
+  .title-app {
+    @include setFontNoto;
+    font-size: 1.4rem;
+    margin-top: 1.5rem;
+  }
 }
 
 a {
-  font-family: 'Noto Sans TC', sans-serif;
+  @include setFontNoto;
   @include resetLink;
 }
